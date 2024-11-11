@@ -49,7 +49,7 @@ if option == "Single Prediction":
             juvenile = 0
         if adult < 0:
             adult = 0
-        st.success(f"Predicted Values:\n - Baby Snails: {np.round(baby)}\n - Juvenile Snails: {np.round(juvenile)}\n - Adult Snails: {np.round(adult)}\n - TOTAL: {np.round(prediction.sum())}")
+        st.success(f"Predicted Values:\n - Baby Snails: {np.round(baby)}\n - Juvenile Snails: {np.round(juvenile)}\n - Adult Snails: {np.round(adult)}\n - TOTAL: {np.round(np.round(baby)+np.round(juvenile)+np.round(adult))}")
 
 # Batch Prediction via File Upload
 elif option == "Batch Prediction (Upload File)":
