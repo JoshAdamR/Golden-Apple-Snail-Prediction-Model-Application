@@ -75,7 +75,7 @@ elif option == "Batch Prediction (Upload File)":
             data[['BABY', 'JUVENILE', 'ADULT']] = predictions
 
             # Replace values less than 0 with 0 in the DataFrame
-            data[data < 0] = 0
+            data[['BABY', 'JUVENILE', 'ADULT'] < 0] = 0
             
             st.write("Predictions:")
             st.dataframe(data)
