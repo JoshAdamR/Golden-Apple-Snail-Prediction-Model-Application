@@ -74,10 +74,10 @@ elif option == "Batch Prediction (Upload File)":
             predictions = model.predict(data_scaled)
             data[['BABY', 'JUVENILE', 'ADULT']] = predictions
 
+            data[['BABY', 'JUVENILE', 'ADULT']] = np.round(data[['BABY', 'JUVENILE', 'ADULT']])
             # Replace values less than 0 with 0 in the specified columns
             data[['BABY', 'JUVENILE', 'ADULT']] = data[['BABY', 'JUVENILE', 'ADULT']].clip(lower=0)
-            data[['BABY', 'JUVENILE', 'ADULT']] = np.round(data[['BABY', 'JUVENILE', 'ADULT']])
-
+            data['TOTAL] = data[['BABY', 'JUVENILE', 'ADULT']].sum()
             
             st.write("Predictions:")
             st.dataframe(data)
