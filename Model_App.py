@@ -42,14 +42,14 @@ if option == "Single Prediction":
     # Predict button
     if st.button("Predict"):
         prediction = make_prediction(input_data)
-        baby, juvenile, adult = prediction  # Unpack prediction values
+        baby, juvenile, adult = np.round(prediction)  # Unpack prediction values
         if baby < 0:
             baby = 0
         if juvenile < 0:
             juvenile = 0
         if adult < 0:
             adult = 0
-        st.success(f"Predicted Values:\n - Baby Snails: {np.round(baby)}\n - Juvenile Snails: {np.round(juvenile)}\n - Adult Snails: {np.round(adult)}\n - TOTAL: {prediction.sum()}")
+        st.success(f"Predicted Values:\n - Baby Snails: {np.round(baby)}\n - Juvenile Snails: {np.round(juvenile)}\n - Adult Snails: {np.round(adult)}\n - TOTAL: {sum(baby, juvenile, adult}")
 
 # Batch Prediction via File Upload
 elif option == "Batch Prediction (Upload File)":
