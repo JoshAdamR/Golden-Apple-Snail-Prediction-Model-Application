@@ -36,7 +36,7 @@ if option == "Single Prediction":
     # Collect user input for each feature
     input_data = {}
     for feature in feature_names:
-        input_data[feature] = st.number_input(f"{feature}", value=0.0, format="%.4f")
+        input_data[feature] = st.number_input(f"{feature}", value=0.0000, format="%.4f")
 
 
     # Predict button
@@ -72,7 +72,7 @@ elif option == "Batch Prediction (Upload File)":
 
             # Make predictions
             predictions = model.predict(data_scaled)
-            data[['BABY', 'JUVENILE', 'ADULT']] = predictions
+            data[['Baby Snails', 'Juvenile Snails', 'Adult Snails']] = predictions
 
             st.write("Predictions:")
             st.dataframe(data)
