@@ -36,7 +36,7 @@ if option == "Single Prediction":
     # Collect user input for each feature
     input_data = {}
     for feature in feature_names:
-        input_data[feature] = st.number_input(f"{feature}", value=0.0000, format="%.4f")
+        input_data[feature] = st.number_input(f"{feature}", value=0.0000, format="%.3f")
 
 
     # Predict button
