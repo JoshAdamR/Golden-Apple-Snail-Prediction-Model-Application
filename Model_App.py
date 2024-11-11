@@ -49,7 +49,7 @@ if option == "Single Prediction":
             juvenile = 0
         if adult < 0:
             adult = 0
-        st.success(f"Predicted Values:\n - BABY: {np.round(baby)}\n - JUVENILE: {np.round(juvenile)}\n - ADULT: {np.round(adult)}")
+        st.success(f"Predicted Values:\n - Baby Snails: {np.round(baby)}\n - Juvenile Snails: {np.round(juvenile)}\n - Adult Snails: {np.round(adult)}\n - TOTAL: {prediction.sum}")
 
 # Batch Prediction via File Upload
 elif option == "Batch Prediction (Upload File)":
@@ -72,7 +72,7 @@ elif option == "Batch Prediction (Upload File)":
 
             # Make predictions
             predictions = model.predict(data_scaled)
-            data[['Baby Snails', 'Juvenile Snails', 'Adult Snails']] = predictions
+            data[['BABY', 'JUVENILE', 'ADULT']] = predictions
 
             st.write("Predictions:")
             st.dataframe(data)
