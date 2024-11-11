@@ -70,12 +70,12 @@ elif option == "Batch Prediction (Upload File)":
             # Scale the features
             data_scaled = scaler.transform(data[feature_names])
 
-            # Replace values less than 0 with 0 in the DataFrame
-            data_scaled[data_scaled < 0] = 0
-
             # Make predictions
             predictions = model.predict(data_scaled)
             data[['BABY', 'JUVENILE', 'ADULT']] = predictions
+
+            # Replace values less than 0 with 0 in the DataFrame
+            data[data < 0] = 0
             
             st.write("Predictions:")
             st.dataframe(data)
