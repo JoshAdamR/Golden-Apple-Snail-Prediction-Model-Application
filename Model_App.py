@@ -74,8 +74,9 @@ elif option == "Batch Prediction (Upload File)":
             predictions = model.predict(data_scaled)
             data[['BABY', 'JUVENILE', 'ADULT']] = predictions
 
-            # Replace values less than 0 with 0 in the DataFrame
-            data[['BABY', 'JUVENILE', 'ADULT'] < 0] = 0
+            # Replace values less than 0 with 0 in the specified columns
+            data[['BABY', 'JUVENILE', 'ADULT']] = data[['BABY', 'JUVENILE', 'ADULT']].clip(lower=0)
+
             
             st.write("Predictions:")
             st.dataframe(data)
