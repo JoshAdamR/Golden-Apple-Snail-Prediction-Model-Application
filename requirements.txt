@@ -146,7 +146,6 @@ progressbar2==4.5.0
 prometheus_client==0.20.0
 prompt-toolkit==3.0.40
 proto-plus==1.25.0
-protobuf==5.28.3
 psutil==5.9.6
 pure-eval==0.2.2
 pyarrow==17.0.0
