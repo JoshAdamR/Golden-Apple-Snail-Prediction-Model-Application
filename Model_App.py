@@ -72,9 +72,6 @@ elif option == "Batch Prediction (Upload File)":
 
             # Replace values less than 0 with 0 in the DataFrame
             data_scaled[data_scaled < 0] = 0
-            
-            # Display the updated DataFrame
-            data_scaled
 
             # Make predictions
             predictions = model.predict(data_scaled)
