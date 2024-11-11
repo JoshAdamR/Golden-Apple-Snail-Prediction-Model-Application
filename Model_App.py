@@ -42,7 +42,7 @@ if option == "Single Prediction":
     # Predict button
     if st.button("Predict"):
         prediction = make_prediction(input_data)
-        baby, juvenile, adult = np.round(prediction)  # Unpack prediction values
+        baby, juvenile, adult = prediction  # Unpack prediction values
         if baby < 0:
             baby = 0
         if juvenile < 0:
@@ -72,8 +72,14 @@ elif option == "Batch Prediction (Upload File)":
 
             # Make predictions
             predictions = model.predict(data_scaled)
-            data[['BABY', 'JUVENILE', 'ADULT']] = predictions
-
+            baby, juvenile, adult = predictions
+            if baby < 0:
+                baby = 0
+            if juvenile < 0:
+                juvenile = 0
+            if adult < 0:
+                adult = 0
+            data[['BABY', 'JUVENILE', 'ADULT']] = baby, juvenile, adult
             st.write("Predictions:")
             st.dataframe(data)
 
